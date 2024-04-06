@@ -22,12 +22,12 @@ public class VehiculoServiceImpl implements VehiculoServiceIn {
 
     @Override
     public VehiculoDTO buscarVehiculo(Long id) {
-        return null;
+        return vehiculoServiceOut.buscarVehiculoOut(id);
     }
 
     @Override
     public List<VehiculoDTO> listarTodosIn() {
-        return null;
+        return vehiculoServiceOut.listarTodosOut();
     }
 
     @Override

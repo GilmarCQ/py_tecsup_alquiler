@@ -1,14 +1,14 @@
 package org.hexagonal.alquiler.domain.aggregates.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class VehiculoDTO {
     private Long id;
     private String placa;

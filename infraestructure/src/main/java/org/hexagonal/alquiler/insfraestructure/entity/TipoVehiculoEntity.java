@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 public class TipoVehiculoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name = "id_tipo_vehiculo")
     private Long id;
 
 //    @Column(name = "codigo", nullable = false, length = 3)

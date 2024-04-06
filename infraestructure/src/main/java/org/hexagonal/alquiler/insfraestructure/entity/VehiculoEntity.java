@@ -40,7 +40,7 @@ public class VehiculoEntity {
     @Column(name = "costo_dia_alquiler")
     private Float costoDiaAlquiler;
 
-    @Column(name = "descripcion", nullable = false, length = 30)
+    @Column(name = "descripcion", nullable = false, length = 100)
     private String descripcion;
 
     @Column(name = "estado", nullable = false)
@@ -65,15 +65,15 @@ public class VehiculoEntity {
     private Timestamp dateDelet;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_tipo_combustible", referencedColumnName = "id_tipo_combustible")
+    @JoinColumn(name = "id_tipo_combustible")
     private TipoCombustibleEntity tipoCombustible;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_tipo_vehiculo", referencedColumnName = "id_tipo_vehiculo")
+    @JoinColumn(name = "id_tipo_vehiculo")
     private TipoVehiculoEntity tipoVehiculo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_marca", referencedColumnName = "id_marca")
+    @JoinColumn(name = "id_marca")
     private MarcaEntity marca;
 
 }

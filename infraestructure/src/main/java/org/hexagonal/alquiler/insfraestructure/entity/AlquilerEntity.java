@@ -22,9 +22,6 @@ public class AlquilerEntity {
     @Column(name = "id_usuario", nullable = false)
     private Long idUsuario;
 
-    @Column(name = "id_vehiculo", nullable = false)
-    private Long idVehiculo;
-
     @Column(name = "fecha_inicio")
     private Timestamp fechaInicio;
 
@@ -68,6 +65,6 @@ public class AlquilerEntity {
     private Timestamp dateDelet;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_alquiler", referencedColumnName = "id_alquiler")
-    private AlquilerEntity alquiler;
+    @JoinColumn(name = "id_vehiculo", referencedColumnName = "id_vehiculo")
+    private VehiculoEntity vehiculo;
 }

@@ -53,6 +53,6 @@ public class CalificacionEntity {
     private Timestamp dateDelet;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_alquiler", referencedColumnName = "id_alquiler")
+    @JoinColumn(name = "id_alquiler")
     private AlquilerEntity alquiler;
 }

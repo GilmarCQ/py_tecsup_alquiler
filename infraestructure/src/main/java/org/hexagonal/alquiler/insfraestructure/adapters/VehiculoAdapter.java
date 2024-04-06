@@ -36,8 +36,12 @@ public class VehiculoAdapter implements VehiculoServiceOut {
 
         VehiculoEntity vehiculoEntity;
 
-        //  Valida parametros
-        if (valParamsAgregar(requestVehiculo))
+        //  Validar parametros entrada
+        if (!valParamsAgregar(requestVehiculo))
+            throw new IllegalArgumentException(mensaje);
+
+        //  Validar restricciones
+        if (!valRestricciones(requestVehiculo))
             throw new IllegalArgumentException(mensaje);
 
         vehiculoEntity = vehiculoRepository.save(getEntityAgregar(requestVehiculo));
@@ -46,12 +50,15 @@ public class VehiculoAdapter implements VehiculoServiceOut {
 
     @Override
     public VehiculoDTO buscarVehiculoOut(Long id) {
-        return null;
+        VehiculoEntity vehiculoBD = vehiculoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("No se encontro el vehiculo."));
+        return vehiculoMapper.mapToDTO(vehiculoBD);
     }
 
     @Override
     public List<VehiculoDTO> listarTodosOut() {
-        return null;
+        List<VehiculoEntity> listaVehiculos = vehiculoRepository.findAllByEstado(Constants.STATUS_ACTIVE);
+        return vehiculoMapper.maṕToDTOList(listaVehiculos);
     }
 
     @Override
@@ -94,6 +101,16 @@ public class VehiculoAdapter implements VehiculoServiceOut {
             mensaje = "Código VIN." + Constants.MESS_PARAMS_ERROR;
             return false;
         }
+        return true;
+    }
+    private Boolean valRestricciones(RequestAgregarVehiculo vehiculo) {
+        Optional<VehiculoEntity> vehiculoBD = vehiculoRepository.findByPlacaAndEstado(vehiculo.getPlaca(), Constants.STATUS_ACTIVE);
+        if (vehiculoBD.isPresent())
+            throw new IllegalArgumentException("La placa del vehiculo " + vehiculo.getPlaca() + " ya existe.");
+
+        vehiculoBD = vehiculoRepository.findByVinAndEstado(vehiculo.getVin(), Constants.STATUS_ACTIVE);
+        if (vehiculoBD.isPresent())
+            throw new IllegalArgumentException("El codigo VIN del vehículo " + vehiculo.getVin() + " ya existe.");
         return true;
     }
 

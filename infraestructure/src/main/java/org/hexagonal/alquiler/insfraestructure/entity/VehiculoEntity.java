@@ -16,8 +16,8 @@ public class VehiculoEntity {
     @Column(name = "id_vehiculo")
     private Long id;
 
-//    @Column(name = "codigo", nullable = false, length = 3)
-//    private String codigo;
+    @Column(name = "vin", nullable = false, length = 17)
+    private String vin;
 
     @Column(name = "placa", nullable = false, length = 7)
     private String placa;

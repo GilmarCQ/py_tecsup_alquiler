@@ -8,8 +8,8 @@ import lombok.Setter;
 @Setter
 @Builder
 public class RequestAgregarVehiculo {
-    private Long id;
     private String placa;
+    private String vin;
     private Long asientos;
     private String anioFabricacion;
     private String color;
@@ -17,4 +17,7 @@ public class RequestAgregarVehiculo {
     private Float costoDiaAlquiler;
     private Float costoHoraAlquiler;
     private String descripcion;
+    private Long idMarca;
+    private Long idTipoVehiculo;
+    private Long idTipoCombustible;
 }

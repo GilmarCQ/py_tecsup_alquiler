@@ -16,8 +16,8 @@ public class MarcaEntity {
     @Column
     private Long id;
 
-    @Column(name = "codigo", nullable = false, length = 10)
-    private String codigo;
+//    @Column(name = "codigo", nullable = false, length = 10)
+//    private String codigo;
 
     @Column(name = "descripcion", nullable = false, length = 150)
     private String descripcion;

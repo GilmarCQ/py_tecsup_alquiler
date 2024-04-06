@@ -16,8 +16,8 @@ public class AlquilerEntity {
     @Column(name = "id_alquiler")
     private Long id;
 
-    @Column(name = "nro_alquiler", nullable = false, length = 10)
-    private String nroAlquiler;
+//    @Column(name = "nro_alquiler", nullable = false, length = 10)
+//    private String nroAlquiler;
 
     @Column(name = "id_usuario", nullable = false)
     private Long idUsuario;
@@ -25,11 +25,11 @@ public class AlquilerEntity {
     @Column(name = "id_vehiculo", nullable = false)
     private Long idVehiculo;
 
-    @Column(name = "fra_inicio")
-    private Timestamp fraInicio;
+    @Column(name = "fecha_inicio")
+    private Timestamp fechaInicio;
 
-    @Column(name = "fra_fin")
-    private Timestamp fraFin;
+    @Column(name = "fecha_fin")
+    private Timestamp fechaFin;
 
     @Column(name = "lugar_recojo", nullable = false, length = 250)
     private String lugarRecojo;
@@ -39,6 +39,12 @@ public class AlquilerEntity {
 
     @Column(name = "longitud_recojo")
     private Double longitudRecojo;
+
+    @Column(name = "tipo", nullable = false, length = 1)
+    private String tipo;
+
+    @Column(name = "cantidad", nullable = false)
+    private Float cantidad;
 
     @Column(name = "estado", nullable = false)
     private Integer estado;

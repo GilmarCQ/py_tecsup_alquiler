@@ -16,8 +16,8 @@ public class VehiculoEntity {
     @Column(name = "id_vehiculo")
     private Long id;
 
-    @Column(name = "codigo", nullable = false, length = 3)
-    private String codigo;
+//    @Column(name = "codigo", nullable = false, length = 3)
+//    private String codigo;
 
     @Column(name = "placa", nullable = false, length = 7)
     private String placa;
@@ -34,8 +34,11 @@ public class VehiculoEntity {
     @Column(name = "transmision", length = 1)
     private String transmision;
 
-    @Column(name = "costo_alquiler")
-    private Float costoAlquiler;
+    @Column(name = "costo_hora_alquiler")
+    private Float costoHoraAlquiler;
+
+    @Column(name = "costo_dia_alquiler")
+    private Float costoDiaAlquiler;
 
     @Column(name = "descripcion", nullable = false, length = 30)
     private String descripcion;

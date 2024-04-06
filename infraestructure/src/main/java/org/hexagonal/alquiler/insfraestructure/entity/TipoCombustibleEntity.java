@@ -16,8 +16,8 @@ public class TipoCombustibleEntity {
     @Column(name = "id_tipo_combustible")
     private Long id;
 
-    @Column(name = "codigo", nullable = false, length = 3)
-    private String codigo;
+//    @Column(name = "codigo", nullable = false, length = 3)
+//    private String codigo;
 
     @Column(name = "descripcion", nullable = false, length = 100)
     private String descripcion;
